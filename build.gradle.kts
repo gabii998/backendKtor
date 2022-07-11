@@ -35,6 +35,7 @@ dependencies {
     implementation("io.insert-koin:koin-ktor:$koin_version")
     implementation("org.ktorm:ktorm-core:$ktorm_version")
     implementation("mysql:mysql-connector-java:8.0.29")
+    implementation("org.ktorm:ktorm-support-mysql:3.5.0")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

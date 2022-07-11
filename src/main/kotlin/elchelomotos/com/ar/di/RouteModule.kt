@@ -1,9 +1,6 @@
 package elchelomotos.com.ar.di
 
-import elchelomotos.com.ar.repositories.ClientRepository
-import elchelomotos.com.ar.repositories.ClientRepositoryImpl
-import elchelomotos.com.ar.repositories.UserRepository
-import elchelomotos.com.ar.repositories.UserRepositoryImpl
+import elchelomotos.com.ar.repositories.*
 import io.ktor.server.application.*
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
@@ -17,9 +14,12 @@ fun Application.startKoin(){
     val userModule = module {
         singleOf(::UserRepositoryImpl) { bind<UserRepository>() }
     }
+    val productModule = module {
+        singleOf(::ProductRepositoryImpl) { bind<ProductRepository>() }
+    }
 
 
     install(Koin){
-        modules(module,userModule)
+        modules(module,userModule,productModule)
     }
 }

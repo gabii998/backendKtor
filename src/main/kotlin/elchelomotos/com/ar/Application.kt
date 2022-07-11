@@ -10,7 +10,7 @@ fun main() {
         configureRouting()
         configureSerialization()
         configureHTTP()
-        startKoin()
         configureSecurity()
+        startKoin()
     }.start(wait = true)
 }

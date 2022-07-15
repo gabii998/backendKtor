@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm
 import elchelomotos.com.ar.core.CustomResponse
 import elchelomotos.com.ar.data.entities.Usuario
 import elchelomotos.com.ar.repositories.UserRepository
+import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -44,7 +45,7 @@ fun Route.userRoutes() {
                 .sign(Algorithm.HMAC256("SECRETO"))
 
 
-            call.respond(CustomResponse(hashMapOf("token" to token),"Logueado correctamente"))
+            call.respond(HttpStatusCode.OK,CustomResponse(hashMapOf("token" to token),"Logueado correctamente"))
             return@post
         }
         call.respond(CustomResponse(null,"Password erronea"))
